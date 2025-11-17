@@ -1,0 +1,15 @@
+local PLAYER_ID = "player"  -- имя go персонажа в этой же коллекции
+
+function update(self, dt)
+	-- позиция персонажа
+	local target_pos = go.get_position(PLAYER_ID)
+
+	-- текущая позиция камеры
+	local cam_pos = go.get_position()
+
+	-- камеру двигаем за персонажем по X/Y, Z оставляем как есть
+	cam_pos.x = target_pos.x
+	cam_pos.y = target_pos.y
+
+	go.set_position(cam_pos)
+end

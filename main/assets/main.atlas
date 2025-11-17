@@ -1,0 +1,4 @@
+images {
+  image: "/main/assets/Arrow.png"
+}
+extrude_borders: 2

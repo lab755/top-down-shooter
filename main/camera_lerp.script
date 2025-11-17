@@ -1,0 +1,23 @@
+local PLAYER_ID = "player" 
+
+local FOLLOW_SPEED = 5  
+
+function init(self)
+	self.offset = vmath.vector3(0, 0, 0)
+end
+
+function update(self, dt)
+	local target_pos = go.get_position(PLAYER_ID) + self.offset
+
+	local cam_pos = go.get_position()
+
+	local t = FOLLOW_SPEED * dt
+	if t > 1 then t = 1 end
+
+	local new_pos = vmath.lerp(t, cam_pos, target_pos)
+
+	new_pos.z = cam_pos.z
+
+	go.set_position(new_pos)
+
+end
